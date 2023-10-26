@@ -1,7 +1,7 @@
 package com.transport.delhi.metro.booking.controller;
 
 import com.transport.delhi.metro.booking.exception.InvalidMetroLineException;
-import com.transport.delhi.metro.booking.service.IRouteService;
+import com.transport.delhi.metro.booking.service.RouteFinder;
 import com.transport.delhi.metro.common.enums.MetroLine;
 import com.transport.delhi.metro.common.enums.MetroStation;
 import com.transport.delhi.metro.common.validation.RequestValidator;
@@ -19,7 +19,7 @@ import java.util.Locale;
 @AllArgsConstructor
 public class RouteStationController {
 
-    private IRouteService routeService;
+    private RouteFinder routeFinder;
 
     private RequestValidator<String> stationValidator;
 
@@ -45,6 +45,6 @@ public class RouteStationController {
         stationValidator.validate(fromStation);
         stationValidator.validate(toStation);
 
-        return routeService.findRoute(fromStation, toStation);
+        return routeFinder.findRoute(fromStation, toStation);
     }
 }

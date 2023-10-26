@@ -10,10 +10,16 @@ import java.util.Random;
 @Component
 public final class BookingIdGenerator {
     private final Random random = new Random();
+    private static final int MAX_BOOKING_ID = 999999999;
 
-    public Integer generateBookingId() {
+    public String generateBookingId() {
         synchronized (this) {
-            return this.random.nextInt(Integer.MAX_VALUE);
+            int randomNum = this.random.nextInt(MAX_BOOKING_ID);
+            return zeroPad(randomNum, 9);
         }
+    }
+
+    private String zeroPad(int value, int width) {
+        return String.format("%0" + width + "d", value);
     }
 }

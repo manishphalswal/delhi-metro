@@ -4,16 +4,17 @@ import com.transport.delhi.metro.booking.referencedata.MetroRoute;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 @Service
 @AllArgsConstructor
-public class RouteService implements IRouteService {
+public class RouteFinderService implements RouteFinder {
 
     private MetroRoute metroRoute;
 
     @Override
-    public List<String> findRoute(String startStation, String endStation) {
+    public List<String> findRoute(@NotNull String startStation, @NotNull String endStation) {
         Map<String, String> parentMap = new HashMap<>();
         Queue<String> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>();

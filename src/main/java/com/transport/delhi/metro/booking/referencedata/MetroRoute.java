@@ -21,7 +21,7 @@ public class MetroRoute {
 
 
     @PostConstruct
-    private void init() {
+    public void init() {
         if (stationAdjacencyList.isEmpty()) {
             // Add metro stations and their connections
             this.addStation("A", Arrays.asList("B", "C"));

@@ -17,7 +17,7 @@ public class MetroFare {
     }
 
     @PostConstruct
-    private void initFare() {
+    public void initFare() {
         if (fareRanges.isEmpty()) {
             fareRanges.add(new FareRange(1, 1, 10.0));
             fareRanges.add(new FareRange(2, 2, 20.0));
